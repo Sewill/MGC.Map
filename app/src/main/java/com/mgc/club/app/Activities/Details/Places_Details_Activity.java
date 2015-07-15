@@ -1,15 +1,16 @@
 package com.mgc.club.app.Activities.Details;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.view.Display;
-import android.view.Menu;
-import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.text.util.Linkify;
+import android.view.*;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.android.volley.Request;
@@ -33,11 +34,12 @@ import org.json.JSONObject;
 
 public class Places_Details_Activity extends AppCompatActivity {
 
+    public static final int TYPE_WEB = 1;
+    public static final int TYPE_PHONE = 2;
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
     private Places place;
-    private TextView note;
-    NetworkImageView thumbNail;
+    private LinearLayout li_lay;
 
     private final String part_url = "http://mgc.club/api/places/";
     private final String end_url = ".json";
@@ -59,11 +61,12 @@ public class Places_Details_Activity extends AppCompatActivity {
                 getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         Point point = new Point();
         display.getSize(point);
-        int height = point.y / 2;
+        int height = point.y / 3;
         ViewGroup.LayoutParams layoutParams = supportMapFragment.getView().getLayoutParams();
         layoutParams.height = height;
         supportMapFragment.getView().setLayoutParams(layoutParams);
 
+        li_lay = (LinearLayout) findViewById(R.id.li_lay);
 
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
 
@@ -72,16 +75,6 @@ public class Places_Details_Activity extends AppCompatActivity {
         scrollView.setLayoutParams(layoutParamsS);
 
         place = (Places) getIntent().getSerializableExtra("object");
-
-
-        thumbNail = (NetworkImageView) findViewById(R.id.details_places);
-        thumbNail.setDefaultImageResId(R.drawable.icon_loading);
-
-        TextView theme = (TextView) findViewById(R.id.details_theme_place);
-
-        theme.setText(place.getName());
-
-        note = (TextView) findViewById(R.id.details_note_place);
 
         lat = place.getLatitude();
         lng = place.getLongitude();
@@ -94,24 +87,97 @@ public class Places_Details_Activity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-//                                    Spanned spannedText = Html.fromHtml("<meta charset=\"utf-8\">" + response.getString("desc"));
-
-                                ImageLoader imageLoader = AppController.getInstance().getImageLoader();
-
                                 String desc = response.getString("desc");
                                 String info = response.getString("info");
                                 String address = response.getString("address");
                                 String worktime = response.getString("worktime");
                                 String phone_number_link = Html.fromHtml(response.getString("phone_number_link")).toString();
                                 String discount_s = Html.fromHtml(response.getString("discount_s")).toString();
+                                String ref = response.getString("site");
 
-                                String url_medium = ((JSONObject) ((JSONObject) ((JSONObject) response.get("placelogo")).get("placelogo")).get("medium")).getString("url");
+                                LinearLayout linearLayout = null;
+                                ImageView imageView = null;
+                                TextView textView = null;
+                                if (info != null && !info.trim().equals("")) {
+                                    addingInformation(info, R.drawable.info, 0);
 
-                                thumbNail.setImageUrl(url_medium, imageLoader);
-//                                    certificates.setDesc(spannedText.toString());
-                                note.setText(desc + "\n" + info + "\n" + address + "\n" + worktime + "\n" + phone_number_link + "\n" + discount_s);
+//                                    linearLayout = new LinearLayout(getApplicationContext());
+//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+//                                    imageView = new ImageView(getApplication());
+//                                    imageView.setImageResource(R.drawable.info);
+//                                    linearLayout.addView(imageView, 30, 30);
+//                                    textView = new TextView(getApplication());
+//                                    textView.setText(info);
+//                                    linearLayout.addView(textView);
+//                                    li_lay.addView(linearLayout);
+                                }
+                                if (address != null && !address.trim().equals("")) {
+                                    addingInformation(address, R.drawable.house, 0);
 
+//                                    linearLayout = new LinearLayout(getApplicationContext());
+//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+//                                    imageView = new ImageView(getApplication());
+//                                    imageView.setImageResource(R.drawable.house);
+//                                    linearLayout.addView(imageView, 30, 30);
+//                                    textView = new TextView(getApplication());
+//                                    textView.setText(address);
+//                                    linearLayout.addView(textView);
+//                                    li_lay.addView(linearLayout);
+                                }
+                                if (worktime != null && !worktime.trim().equals("")) {
+                                    addingInformation(worktime, R.drawable.clock, 0);
 
+//                                    linearLayout = new LinearLayout(getApplicationContext());
+//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+//                                    imageView = new ImageView(getApplication());
+//                                    imageView.setImageResource(R.drawable.clock);
+//                                    linearLayout.addView(imageView, 30, 30);
+//                                    textView = new TextView(getApplication());
+//                                    textView.setText(worktime);
+//                                    linearLayout.addView(textView);
+//                                    li_lay.addView(linearLayout);
+                                }
+                                if (phone_number_link != null && !phone_number_link.trim().equals("")) {
+                                    phone_number_link = phone_number_link.replaceAll("\n", "\t");
+
+                                    addingInformation(phone_number_link, R.drawable.phone, TYPE_PHONE);
+
+//                                    linearLayout = new LinearLayout(getApplicationContext());
+//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+//                                    imageView = new ImageView(getApplication());
+//                                    imageView.setImageResource(R.drawable.phone);
+//                                    linearLayout.addView(imageView, 30, 30);
+//                                    textView = new TextView(getApplication());
+//                                    textView.setText(phone_number_link);
+//                                    linearLayout.addView(textView);
+//                                    li_lay.addView(linearLayout);
+                                }
+                                if (ref != null && !ref.trim().equals("")) {
+                                    addingInformation(ref, R.drawable.web, TYPE_WEB);
+
+//                                    linearLayout = new LinearLayout(getApplicationContext());
+//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+//                                    imageView = new ImageView(getApplication());
+//                                    imageView.setImageResource(R.drawable.web);
+//                                    linearLayout.addView(imageView, 30, 30);
+//                                    textView = new TextView(getApplication());
+//                                    textView.setText(ref);
+//                                    linearLayout.addView(textView);
+//                                    li_lay.addView(linearLayout);
+                                }
+                                if (discount_s != null && !discount_s.trim().equals("")) {
+                                    addingInformation(discount_s, R.drawable.discount, 0);
+
+//                                    linearLayout = new LinearLayout(getApplicationContext());
+//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+//                                    imageView = new ImageView(getApplication());
+//                                    imageView.setImageResource(R.drawable.discount);
+//                                    linearLayout.addView(imageView, 30, 30);
+//                                    textView = new TextView(getApplication());
+//                                    textView.setText(discount_s);
+//                                    linearLayout.addView(textView);
+//                                    li_lay.addView(linearLayout);
+                                }
 //                                    setUpMapIfNeeded();
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -124,13 +190,39 @@ public class Places_Details_Activity extends AppCompatActivity {
                     //                VolleyLog.d(TAG, "Error: " + error.getMessage());
                 }
             });
-//            AppController.getInstance().addToRequestQueue(movieReq);
             queue.add(movieReq);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    private void addingInformation(String s, int res, int type) {
+        LinearLayout linearLayout = null;
+        ImageView imageView = null;
+        TextView textView = null;
+        linearLayout = new LinearLayout(getApplicationContext());
+        linearLayout.setGravity(Gravity.CENTER_VERTICAL);
+        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        imageView = new ImageView(getApplication());
+        imageView.setImageResource(res);
+        linearLayout.addView(imageView, 30, 30);
+        textView = new TextView(getApplication());
+        textView.setText(s);
+        textView.setTextColor(Color.BLACK);
+        textView.setPadding(20, 5, 0, 5);
+        switch (type) {
+            case TYPE_WEB: {
+                Linkify.addLinks(textView, Linkify.WEB_URLS);
+                break;
+            }
+            case TYPE_PHONE: {
+                Linkify.addLinks(textView, Linkify.PHONE_NUMBERS);
+                break;
+            }
+        }
 
+        linearLayout.addView(textView);
+        li_lay.addView(linearLayout);
     }
 
     private void setUpMapIfNeeded() {
