@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView" android:nestedScrollingEnabled="true">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            <com.android.volley.toolbox.NetworkImageView
+                    android:id="@+id/details_places"
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="8dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/details_theme_place"
+                    android:textSize="18sp"
+                    android:textStyle="bold" android:layout_margin="8dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/details_note_place" android:layout_margin="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                           xmlns:tools="http://schemas.android.com/tools"
+                           android:layout_width="fill_parent"
+                           android:layout_height="fill_parent"
+                           android:id="@+id/map"
+                           tools:context=".Details"
+                           android:name="com.google.android.gms.maps.SupportMapFragment" android:layout_margin="10px"/>
+</LinearLayout>

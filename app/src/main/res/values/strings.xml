@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MGC.Club</string>
+    <string name="title_activity_details">Map</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="certificates">Сертификаты</string>
+    <string name="title_section2">2</string>
+    <string name="title_section3">3</string>
+    <string name="sss">Large Text</string>
+
+</resources>
