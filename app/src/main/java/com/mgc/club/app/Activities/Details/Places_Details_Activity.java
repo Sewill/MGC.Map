@@ -32,6 +32,8 @@ import com.mgc.club.app.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.regex.Pattern;
+
 public class Places_Details_Activity extends AppCompatActivity {
 
     public static final int TYPE_WEB = 1;
@@ -212,11 +214,16 @@ public class Places_Details_Activity extends AppCompatActivity {
         textView.setPadding(20, 5, 0, 5);
         switch (type) {
             case TYPE_WEB: {
-                Linkify.addLinks(textView, Linkify.WEB_URLS);
+                textView.setClickable(true);
+//                Pattern pattern = Pattern.compile(s);
+//                Linkify.addLinks(textView, pattern, "http://");
+                Linkify.addLinks(textView, Linkify.ALL);
                 break;
             }
             case TYPE_PHONE: {
-                Linkify.addLinks(textView, Linkify.PHONE_NUMBERS);
+//                Linkify.addLinks(textView, Linkify.PHONE_NUMBERS);
+
+                Linkify.addLinks(textView, Linkify.ALL);
                 break;
             }
         }
