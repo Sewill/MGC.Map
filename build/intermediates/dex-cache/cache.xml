@@ -2,200 +2,200 @@
 <items version="2" >
 
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-9a28912d759d5ab08a5f418c1a88f80a98ec0242.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-0300444cd090c08f84c667e9655141d1c5ead3d3.jar" />
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-5b43a9d3ef282cc320df90763e339a54faaa508e.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\libs\internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="d405025c600055237c171a0bbabaa49d69696573">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-0f397a6d765ae940be9e82f6a9f948c3092557e8.jar" />
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-8dd77d4cebc16dc978518e62107507f8cd70b24b.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-a5836825cefea9af79665050515e28de78afe9f3.jar" />
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-0fc7769f29e7aa327baccb8a02d4976698d3f3da.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-8d6f857ef6914e0b0eb139c1fd013fe89efb3cc0.jar" />
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-5851deade17e04b462de376d536e8aaa482590bd.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-8ef02ee68c0f2648f81bae3f2f7f72459ae6391e.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-d30a7df3da3cb0502f43adc62d2b50899ca21138.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-8291f4b90c2d1493f01091b685603e512d729415.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-9203e3ca7e6f5e8fd7456b689c54a4c2d3650337.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-6c667f595031ed5ec5777cce32177538f42e1ee4.jar" />
     </item>
     <item
         jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-b882185bdf7e01b06985ec771daafb5ee19e53d1.jar" />
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-b882185bdf7e01b06985ec771daafb5ee19e53d1.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a78183f30e769a98ab4820794f597763088d3065">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-1d312006c2c9e2f7c85ac71944425c0df85715f4.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-05d1483ef46909fa5298e883843402c59d365dbf.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-7cfc066619e2b132410adb83235511cf25078c79.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-939e79752f827c0139ca2e0def7c67da88a3b125.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\libs\volley.jar"
+        jar="C:\TMP\MGC.Club\app\libs\volley.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\volley-38785e2920157ca0677d8fac6e10595928cc6b28.jar" />
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\volley-6e6758d496752ced86f8c11e35abcae37fa46f4b.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\libs\internal_impl-22.0.0.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-3070cd0a6fc1a4e308b71816afa16c32c55d49bf.jar" />
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-542ecd31b2036426e8cef37b7b2c1190cbed27d8.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-e42271cc18a007108691477157880759251d8127.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-06b51be7bd83026cce232f2173915ee98e673378.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-0e7c174ac26aae2b22bc6e5b885cc14d7f7ef88f.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\libs\gson-2.2.4.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="973e832af433b44c3ed11c426f2f390b29f3f3f8">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\gson-2.2.4-22cecb6525b6b35bc96e71ef9794c4dcef55082c.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-6acb92096ae44974447a08d845302bc717422eb2.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-f11141b70a4c7376753fab33ce64cb50470aa0ef.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-54e49395a26c2227454e5074ab7af71289eebc5b.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-7678ec8dea66eee9667d4de093830054b99a90aa.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-402aa2830e1ddb9f89ed0e6944e4fdfa71dd6ae1.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-a1649dd6ebbbc8d670fc0acf30af1fade6bd79f7.jar" />
-    </item>
-    <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-43bed44809cd82d430ee78695cb5a0355bdd66c5.jar" />
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-078b4e296328ef8cde462f8e48d5ca8b96ed261a.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.5.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-6d240ecb86cfb75fa8d2c7d4f5c893309f98f8e9.jar" />
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-1459ce0ea6a0f491079f72251c8a7836d6cb54f6.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-e782c6aadefdd9bbfa7eff4e95ec1977d1ce00e0.jar" />
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-8831b63c014c61f6a076adc1d5320f108f086550.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\libs\gson-2.2.4.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-80f8960dfdc3f186b1840387151e7133dcc2f1b1.jar" />
+        sha1="973e832af433b44c3ed11c426f2f390b29f3f3f8">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\gson-2.2.4-a80223a6811c63fceabc24594818adbd6917bfa4.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-9676d7ab9e4927631dcf3d194f5fdba77bd91cfe.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-ef396c70c8c9b0de83c580813da78bd78a18726c.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-cf3d23378f9baefbadf735c3a5c72a010de06049.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-07bd4021f36ebc2be88d600736311857e0880a3a.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-922b686b5220b8773d6a9bc8c9bf59460d1b4d05.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a1372c17fccacca753d3951d3ad820571cbce075">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-ae7c4a477d40a67df12c3f63144a0c0d2c844c05.jar" />
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-9eb13b01684ebf7972f6bebd9c2c1803f2b73a60.jar" />
     </item>
     <item
-        jar="C:\TMP\MGC.map\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\classes.jar"
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
-        <dex dex="C:\TMP\MGC.map\app\build\intermediates\pre-dexed\debug\classes-8704cb08b9bcb8ef397ce60565dfba9ca6e54295.jar" />
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-3c6e7a747f2843fd0c79bea40fd44bb7c04342f7.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-54e29d2eba0197bda719e8a0f5d0991cb2b36306.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-776d356df21d25b2c9d9c301189634c61f248b8d.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-23765fad9ee4ac9885d0b87b74b953cdb9822e6e.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-04de850bd7bebcde0276f61c6ceff9120f1d4f68.jar" />
+    </item>
+    <item
+        jar="C:\TMP\MGC.Club\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="C:\TMP\MGC.Club\app\build\intermediates\pre-dexed\debug\classes-b56f4c49261257e88876e1fcb6837ad90ae0251b.jar" />
     </item>
 
 </items>

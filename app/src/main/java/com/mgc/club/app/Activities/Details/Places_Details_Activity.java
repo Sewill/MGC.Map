@@ -17,22 +17,17 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.mgc.club.app.Application.AppController;
 import com.mgc.club.app.Model.Places;
 import com.mgc.club.app.R;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.regex.Pattern;
 
 public class Places_Details_Activity extends AppCompatActivity {
 
@@ -97,90 +92,26 @@ public class Places_Details_Activity extends AppCompatActivity {
                                 String discount_s = Html.fromHtml(response.getString("discount_s")).toString();
                                 String ref = response.getString("site");
 
-                                LinearLayout linearLayout = null;
-                                ImageView imageView = null;
-                                TextView textView = null;
                                 if (info != null && !info.trim().equals("")) {
                                     addingInformation(info, R.drawable.info, 0);
-
-//                                    linearLayout = new LinearLayout(getApplicationContext());
-//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-//                                    imageView = new ImageView(getApplication());
-//                                    imageView.setImageResource(R.drawable.info);
-//                                    linearLayout.addView(imageView, 30, 30);
-//                                    textView = new TextView(getApplication());
-//                                    textView.setText(info);
-//                                    linearLayout.addView(textView);
-//                                    li_lay.addView(linearLayout);
                                 }
                                 if (address != null && !address.trim().equals("")) {
                                     addingInformation(address, R.drawable.house, 0);
-
-//                                    linearLayout = new LinearLayout(getApplicationContext());
-//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-//                                    imageView = new ImageView(getApplication());
-//                                    imageView.setImageResource(R.drawable.house);
-//                                    linearLayout.addView(imageView, 30, 30);
-//                                    textView = new TextView(getApplication());
-//                                    textView.setText(address);
-//                                    linearLayout.addView(textView);
-//                                    li_lay.addView(linearLayout);
                                 }
                                 if (worktime != null && !worktime.trim().equals("")) {
                                     addingInformation(worktime, R.drawable.clock, 0);
-
-//                                    linearLayout = new LinearLayout(getApplicationContext());
-//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-//                                    imageView = new ImageView(getApplication());
-//                                    imageView.setImageResource(R.drawable.clock);
-//                                    linearLayout.addView(imageView, 30, 30);
-//                                    textView = new TextView(getApplication());
-//                                    textView.setText(worktime);
-//                                    linearLayout.addView(textView);
-//                                    li_lay.addView(linearLayout);
                                 }
                                 if (phone_number_link != null && !phone_number_link.trim().equals("")) {
                                     phone_number_link = phone_number_link.replaceAll("\n", "\t");
 
                                     addingInformation(phone_number_link, R.drawable.phone, TYPE_PHONE);
-
-//                                    linearLayout = new LinearLayout(getApplicationContext());
-//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-//                                    imageView = new ImageView(getApplication());
-//                                    imageView.setImageResource(R.drawable.phone);
-//                                    linearLayout.addView(imageView, 30, 30);
-//                                    textView = new TextView(getApplication());
-//                                    textView.setText(phone_number_link);
-//                                    linearLayout.addView(textView);
-//                                    li_lay.addView(linearLayout);
                                 }
                                 if (ref != null && !ref.trim().equals("")) {
                                     addingInformation(ref, R.drawable.web, TYPE_WEB);
-
-//                                    linearLayout = new LinearLayout(getApplicationContext());
-//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-//                                    imageView = new ImageView(getApplication());
-//                                    imageView.setImageResource(R.drawable.web);
-//                                    linearLayout.addView(imageView, 30, 30);
-//                                    textView = new TextView(getApplication());
-//                                    textView.setText(ref);
-//                                    linearLayout.addView(textView);
-//                                    li_lay.addView(linearLayout);
                                 }
                                 if (discount_s != null && !discount_s.trim().equals("")) {
                                     addingInformation(discount_s, R.drawable.discount, 0);
-
-//                                    linearLayout = new LinearLayout(getApplicationContext());
-//                                    linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-//                                    imageView = new ImageView(getApplication());
-//                                    imageView.setImageResource(R.drawable.discount);
-//                                    linearLayout.addView(imageView, 30, 30);
-//                                    textView = new TextView(getApplication());
-//                                    textView.setText(discount_s);
-//                                    linearLayout.addView(textView);
-//                                    li_lay.addView(linearLayout);
                                 }
-//                                    setUpMapIfNeeded();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -199,31 +130,24 @@ public class Places_Details_Activity extends AppCompatActivity {
     }
 
     private void addingInformation(String s, int res, int type) {
-        LinearLayout linearLayout = null;
-        ImageView imageView = null;
-        TextView textView = null;
-        linearLayout = new LinearLayout(getApplicationContext());
+        LinearLayout linearLayout = new LinearLayout(getApplicationContext());
         linearLayout.setGravity(Gravity.CENTER_VERTICAL);
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        imageView = new ImageView(getApplication());
+        ImageView imageView = new ImageView(this);
         imageView.setImageResource(res);
+        imageView.setPadding(10, 0, 0, 0);
         linearLayout.addView(imageView, 30, 30);
-        textView = new TextView(getApplication());
+        TextView textView = new TextView(this);
         textView.setText(s);
         textView.setTextColor(Color.BLACK);
         textView.setPadding(20, 5, 0, 5);
         switch (type) {
             case TYPE_WEB: {
-                textView.setClickable(true);
-//                Pattern pattern = Pattern.compile(s);
-//                Linkify.addLinks(textView, pattern, "http://");
-                Linkify.addLinks(textView, Linkify.ALL);
+                Linkify.addLinks(textView, Linkify.WEB_URLS);
                 break;
             }
             case TYPE_PHONE: {
-//                Linkify.addLinks(textView, Linkify.PHONE_NUMBERS);
-
-                Linkify.addLinks(textView, Linkify.ALL);
+                Linkify.addLinks(textView, Linkify.PHONE_NUMBERS);
                 break;
             }
         }
@@ -241,7 +165,7 @@ public class Places_Details_Activity extends AppCompatActivity {
 
             mMap.addMarker(new MarkerOptions()
                     .title(place.getName())
-                    .snippet("The most populous city in Australia.")
+//                    .snippet("The most populous city in Australia.")
                     .position(latLng));
         }
     }

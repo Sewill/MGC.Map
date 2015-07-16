@@ -7,7 +7,9 @@ local.properties
 Thumbs.db
 .DS_Store
 .gradle
-build/
+/build
 *.log
 /*/out
 /*/*/build
+/.idea/workspace.xml
+/.idea/libraries
