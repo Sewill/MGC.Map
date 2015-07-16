@@ -6,8 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -31,6 +30,7 @@ public class Places_Fragment extends Fragment {
     private List<Places> placeses = new ArrayList<Places>();
     private ListView listView;
     private Places_Adapter adapter;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,8 +42,18 @@ public class Places_Fragment extends Fragment {
         adapter = new Places_Adapter(getActivity(), placeses);
         listView.setAdapter(adapter);
 
+        //region показать значет загрузки
+        RelativeLayout relativeLayout = (RelativeLayout) rootView.findViewById(R.id.fff);
+        progressBar = new ProgressBar(getActivity());
+        progressBar.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        relativeLayout.setGravity(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
+        relativeLayout.addView(progressBar);
+        //endregion
+
         // Creating volley request obj
-        if (url != null&&!url.equals("null")) {
+        if (url != null && !url.equals("null")) {
             JsonArrayRequest movieReq = new JsonArrayRequest(url,
                     new Response.Listener<JSONArray>() {
                         @Override
@@ -53,6 +63,9 @@ public class Places_Fragment extends Fragment {
                             // Parsing json
                             for (int i = 0; i < response.length(); i++) {
                                 try {
+                                    //region загрузка прошла упешно, так что убираем значек загрузки
+                                    progressBar.setVisibility(ProgressBar.INVISIBLE);
+                                    //endregion
 
                                     JSONObject obj = response.getJSONObject(i);
                                     Places places = new Places();

@@ -16,7 +16,7 @@ public class AppController extends Application {
 
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
-    public static String[] month = {"января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"};
+    public static String[] month = {"января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"};
 
     private static AppController mInstance;
 
@@ -37,13 +37,15 @@ public class AppController extends Application {
 
         return mRequestQueue;
     }
-   public BitmapCaches bitmapCaches = null;
+
+    public BitmapCaches bitmapCaches = null;
+
     public ImageLoader getImageLoader() {
         getRequestQueue();
         if (mImageLoader == null) {
             bitmapCaches = new BitmapCaches();
             mImageLoader = new ImageLoader(this.mRequestQueue,
-                    bitmapCaches );
+                    bitmapCaches);
         }
         return this.mImageLoader;
     }

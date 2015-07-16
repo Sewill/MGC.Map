@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class SectionsPager_Adapter extends FragmentPagerAdapter {
 
-    Activity activity = new Activity();
+    private Activity activity = new Activity();
     private List<Fragment> fragments;
 
 

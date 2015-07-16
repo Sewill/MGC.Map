@@ -6,8 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -33,19 +32,28 @@ public class Events_Fragment extends Fragment {
     private List<Events> events = new ArrayList<Events>();
     private ListView listView;
     private Events_Adapter adapter;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.lists, container, false);
 
+        RelativeLayout relativeLayout = (RelativeLayout) rootView.findViewById(R.id.fff);
+
+        progressBar = new ProgressBar(getActivity());
+        progressBar.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        relativeLayout.setGravity(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
+        relativeLayout.addView(progressBar);
 
         listView = (ListView) rootView.findViewById(R.id.list);
         adapter = new Events_Adapter(getActivity(), events);
         listView.setAdapter(adapter);
 
         // Creating volley request obj
-        if(url!=null&&!url.equals("null")) {
+        if (url != null && !url.equals("null")) {
             JsonArrayRequest movieReq = new JsonArrayRequest(url,
                     new Response.Listener<JSONArray>() {
                         @Override
@@ -55,6 +63,7 @@ public class Events_Fragment extends Fragment {
                             // Parsing json
                             for (int i = 0; i < response.length(); i++) {
                                 try {
+                                    progressBar.setVisibility(ProgressBar.INVISIBLE);
 
                                     JSONObject obj = response.getJSONObject(i);
                                     Events event = new Events();
@@ -72,7 +81,7 @@ public class Events_Fragment extends Fragment {
                                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
                                     Calendar calendar = new GregorianCalendar();
                                     calendar.setTime(date);
-                                    String start ="Начало " + calendar.DAY_OF_MONTH + " " +AppController.getInstance().month[calendar.get(Calendar.MONTH)]+  " "+simpleDateFormat.format(date);
+                                    String start = "Начало " + calendar.DAY_OF_MONTH + " " + AppController.getInstance().month[calendar.get(Calendar.MONTH)] + " " + simpleDateFormat.format(date);
 
                                     event.setStart(start);
                                     try {
@@ -81,7 +90,7 @@ public class Events_Fragment extends Fragment {
                                         e.printStackTrace();
                                     }
 
-                                    String finish = "Конец "+ calendar.DAY_OF_MONTH + " " +AppController.getInstance().month[calendar.get(Calendar.MONTH)]+  " "+simpleDateFormat.format(date);
+                                    String finish = "Конец " + calendar.DAY_OF_MONTH + " " + AppController.getInstance().month[calendar.get(Calendar.MONTH)] + " " + simpleDateFormat.format(date);
                                     event.setFinish(finish);
                                     event.setEventcover(obj.getString("eventcover"));
 

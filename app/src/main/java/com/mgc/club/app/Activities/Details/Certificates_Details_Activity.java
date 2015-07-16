@@ -7,6 +7,9 @@ import android.text.Html;
 import android.text.Spanned;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,40 +29,49 @@ import org.json.JSONObject;
  * Created by savva on 07.07.2015.
  */
 public class Certificates_Details_Activity extends AppCompatActivity {
-    Certificates certificates = null;
-    TextView note = null;
+    private Certificates certificates = null;
+    private TextView note = null;
+    private TextView theme = null;
+    private ProgressBar progressBar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details);
 
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.detailsLayout);
+        progressBar = new ProgressBar(this);
+        progressBar.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        linearLayout.setGravity(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
+        linearLayout.addView(progressBar);
+
         certificates = (Certificates) getIntent().getSerializableExtra("object");
 
         ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
         NetworkImageView thumbNail = (NetworkImageView) findViewById(R.id.details_thumbnail);
-        thumbNail.setDefaultImageResId(R.drawable.icon_loading);
+//        thumbNail.setDefaultImageResId(R.drawable.icon_loading);
         thumbNail.setImageUrl(certificates.getCover_url(), imageLoader);
 
-        TextView theme = (TextView) findViewById(R.id.details_theme);
-
-
-        theme.setText(certificates.getName());
-
+        theme = (TextView) findViewById(R.id.details_theme);
         note = (TextView) findViewById(R.id.details_note);
 
         if (certificates.getDesc() == null) {
 
             try {
                 RequestQueue queue = Volley.newRequestQueue(this);
-                if(certificates.getUrl()!=null) {
+                if (certificates.getUrl() != null) {
                     JsonObjectRequest movieReq = new JsonObjectRequest(Request.Method.GET, certificates.getUrl(), null,
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                     try {
+                                        progressBar.setVisibility(ProgressBar.INVISIBLE);
+
                                         Spanned spannedText = Html.fromHtml("<meta charset=\"utf-8\">" + response.getString("desc"));
+                                        theme.setText(certificates.getName());
                                         certificates.setDesc(spannedText.toString());
                                         note.setText(certificates.getDesc());
                                     } catch (JSONException e) {

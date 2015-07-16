@@ -6,8 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -31,6 +30,7 @@ public class Certificates_Fragment extends Fragment {
     private List<Certificates> certificatesList = new ArrayList<Certificates>();
     private ListView listView;
     private Certificates_Adapter adapter;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -40,9 +40,27 @@ public class Certificates_Fragment extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.list);
         adapter = new Certificates_Adapter(getActivity(), certificatesList);
         listView.setAdapter(adapter);
-        // Creating volley request obj
+
+        RelativeLayout relativeLayout = (RelativeLayout) rootView.findViewById(R.id.fff);
+
+        progressBar = new ProgressBar(getActivity());
+        progressBar.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        relativeLayout.setGravity(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
+        relativeLayout.addView(progressBar);
+
+
+//        ProgressDialog progressDialog;
+//        progressDialog = new ProgressDialog(getActivity()); //Here I get an error: The constructor ProgressDialog(PFragment) is undefined
+//        progressDialog.setMessage("Loading..");
+//        progressDialog.setTitle("Checking Network");
+//        progressDialog.setIndeterminate(false);
+//        progressDialog.setCancelable(true);
+//        progressDialog.show();
+
         try {
-            if (url != null&&!url.equals("null")) {
+            if (url != null && !url.equals("null")) {
                 JsonArrayRequest movieReq = new JsonArrayRequest(url,
                         new Response.Listener<JSONArray>() {
                             @Override
@@ -52,6 +70,7 @@ public class Certificates_Fragment extends Fragment {
                                 // Parsing json
                                 for (int i = 0; i < response.length(); i++) {
                                     try {
+                                        progressBar.setVisibility(ProgressBar.INVISIBLE);
 
                                         JSONObject obj = response.getJSONObject(i);
                                         Certificates certificates = new Certificates();
@@ -71,6 +90,10 @@ public class Certificates_Fragment extends Fragment {
 
                                         // adding movie to movies array
                                         certificatesList.add(certificates);
+
+//                                        if (progressDialog.isShowing()) {
+//                                            progressDialog.dismiss();
+//                                        }
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();

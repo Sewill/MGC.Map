@@ -23,7 +23,7 @@ public class Certificates_Adapter extends BaseAdapter {
     private List<Certificates> certificates;
     private Activity activity;
     private LayoutInflater inflater;
-    public ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+    private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
     public Certificates_Adapter(Activity activity, List<Certificates> certificates) {
         this.activity = activity;
@@ -67,7 +67,7 @@ public class Certificates_Adapter extends BaseAdapter {
         Certificates m = certificates.get(position);
 
         // thumbnail image
-        if(m.getCover_url()!=null&&!m.getCover_url().equals("null")) {
+        if (m.getCover_url() != null && !m.getCover_url().equals("null")) {
             thumbNail.setImageUrl(m.getCover_url(), imageLoader);
         }
         // title

@@ -23,7 +23,7 @@ public class Events_Adapter extends BaseAdapter {
     private List<Events> events;
     private Activity activity;
     private LayoutInflater inflater;
-    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+    private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
     public Events_Adapter(Activity activity, List<Events> events) {
         this.activity = activity;
@@ -67,14 +67,14 @@ public class Events_Adapter extends BaseAdapter {
         Events m = events.get(position);
 
         // thumbnail image
-        if(m.getEventcover()!=null&&!m.getEventcover().equals("null")) {
+        if (m.getEventcover() != null && !m.getEventcover().equals("null")) {
             thumbNail.setImageUrl(m.getEventcover(), imageLoader);
         }
         // title
         title.setText(m.getName());
 
         // rating
-        rating.setText(m.getStart()+"\n"+m.getFinish());
+        rating.setText(m.getStart() + "\n" + m.getFinish());
 
 //        // genre
 //        String genreStr = "";

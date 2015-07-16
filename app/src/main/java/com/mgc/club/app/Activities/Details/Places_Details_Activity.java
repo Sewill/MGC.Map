@@ -1,6 +1,7 @@
 package com.mgc.club.app.Activities.Details;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -8,11 +9,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.util.Linkify;
+import android.util.TypedValue;
 import android.view.*;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.widget.*;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -33,6 +32,8 @@ public class Places_Details_Activity extends AppCompatActivity {
 
     public static final int TYPE_WEB = 1;
     public static final int TYPE_PHONE = 2;
+    public static final int SIZE_CONTENT = 14;
+    public static final int SIZE_THEME = 20;
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
     private Places place;
@@ -40,12 +41,20 @@ public class Places_Details_Activity extends AppCompatActivity {
 
     private final String part_url = "http://mgc.club/api/places/";
     private final String end_url = ".json";
+    private ProgressBar progressBar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.li_lay);
+        progressBar = new ProgressBar(this);
+        progressBar.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        linearLayout.setGravity(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
+        linearLayout.addView(progressBar);
 
         SupportMapFragment supportMapFragment = null;
         if (mMap == null) {
@@ -53,23 +62,51 @@ public class Places_Details_Activity extends AppCompatActivity {
             supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
             mMap = supportMapFragment.getMap();
         }
-
-        Display display = ((WindowManager)
-                getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        Point point = new Point();
-        display.getSize(point);
-        int height = point.y / 3;
-        ViewGroup.LayoutParams layoutParams = supportMapFragment.getView().getLayoutParams();
-        layoutParams.height = height;
-        supportMapFragment.getView().setLayoutParams(layoutParams);
-
-        li_lay = (LinearLayout) findViewById(R.id.li_lay);
-
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
 
-        ViewGroup.LayoutParams layoutParamsS = scrollView.getLayoutParams();
-        layoutParamsS.height = height;
-        scrollView.setLayoutParams(layoutParamsS);
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0)
+            result = getResources().getDimensionPixelSize(resourceId);
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+            resourceId = getResources().getIdentifier("navigation_bar_height", "dimen", "android");
+            result = result + getResources().getDimensionPixelSize(resourceId);
+
+
+            Display display = ((WindowManager)
+                    getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+            Point point = new Point();
+            display.getSize(point);
+            int height = (point.y-result) / 2;
+            ViewGroup.LayoutParams layoutParams = supportMapFragment.getView().getLayoutParams();
+            layoutParams.height = height;
+            supportMapFragment.getView().setLayoutParams(layoutParams);
+
+            ViewGroup.LayoutParams layoutParamsS = scrollView.getLayoutParams();
+            layoutParamsS.height = height;
+            scrollView.setLayoutParams(layoutParamsS);
+        } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            resourceId = getResources().getIdentifier("navigation_bar_height_landscape", "dimen", "android");
+            result =+ getResources().getDimensionPixelSize(resourceId);
+
+
+            Display display = ((WindowManager)
+                    getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+            Point point = new Point();
+            display.getSize(point);
+            int height = point.x / 2;
+            ViewGroup.LayoutParams layoutParams = supportMapFragment.getView().getLayoutParams();
+            layoutParams.width = height;
+            supportMapFragment.getView().setLayoutParams(layoutParams);
+
+            ViewGroup.LayoutParams layoutParamsS = scrollView.getLayoutParams();
+            layoutParamsS.width = height;
+            scrollView.setLayoutParams(layoutParamsS);
+        }
+
+        li_lay = (LinearLayout) findViewById(R.id.li_lay);
 
         place = (Places) getIntent().getSerializableExtra("object");
 
@@ -84,33 +121,36 @@ public class Places_Details_Activity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                String desc = response.getString("desc");
+                                progressBar.setVisibility(ProgressBar.INVISIBLE);
+
                                 String info = response.getString("info");
                                 String address = response.getString("address");
                                 String worktime = response.getString("worktime");
                                 String phone_number_link = Html.fromHtml(response.getString("phone_number_link")).toString();
                                 String discount_s = Html.fromHtml(response.getString("discount_s")).toString();
                                 String ref = response.getString("site");
-
-                                if (info != null && !info.trim().equals("")) {
-                                    addingInformation(info, R.drawable.info, 0);
+                                if (place.getName()!=null) {
+                                    addingInformation(place.getName(), null, 0, SIZE_THEME);
                                 }
-                                if (address != null && !address.trim().equals("")) {
-                                    addingInformation(address, R.drawable.house, 0);
+                                if (info != null && !info.trim().equals("")&& !info.trim().equals("null")) {
+                                    addingInformation(info, R.drawable.info, 0,SIZE_CONTENT);
                                 }
-                                if (worktime != null && !worktime.trim().equals("")) {
-                                    addingInformation(worktime, R.drawable.clock, 0);
+                                if (address != null && !address.trim().equals("")&& !info.trim().equals("null")) {
+                                    addingInformation(address, R.drawable.house, 0,SIZE_CONTENT);
                                 }
-                                if (phone_number_link != null && !phone_number_link.trim().equals("")) {
+                                if (worktime != null && !worktime.trim().equals("")&& !info.trim().equals("null")) {
+                                    addingInformation(worktime, R.drawable.clock, 0,SIZE_CONTENT);
+                                }
+                                if (phone_number_link != null && !phone_number_link.trim().equals("")&& !info.trim().equals("null")) {
                                     phone_number_link = phone_number_link.replaceAll("\n", "\t");
 
-                                    addingInformation(phone_number_link, R.drawable.phone, TYPE_PHONE);
+                                    addingInformation(phone_number_link, R.drawable.phone, TYPE_PHONE,SIZE_CONTENT);
                                 }
-                                if (ref != null && !ref.trim().equals("")) {
-                                    addingInformation(ref, R.drawable.web, TYPE_WEB);
+                                if (ref != null && !ref.trim().equals("")&& !info.trim().equals("null")) {
+                                    addingInformation(ref, R.drawable.web, TYPE_WEB,14);
                                 }
-                                if (discount_s != null && !discount_s.trim().equals("")) {
-                                    addingInformation(discount_s, R.drawable.discount, 0);
+                                if (discount_s != null && !discount_s.trim().equals("")&& !info.trim().equals("null")) {
+                                    addingInformation(discount_s, R.drawable.discount, 0, SIZE_CONTENT);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -129,17 +169,20 @@ public class Places_Details_Activity extends AppCompatActivity {
         }
     }
 
-    private void addingInformation(String s, int res, int type) {
+    private void addingInformation(String s, Integer res, int type, float size) {
         LinearLayout linearLayout = new LinearLayout(getApplicationContext());
         linearLayout.setGravity(Gravity.CENTER_VERTICAL);
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        ImageView imageView = new ImageView(this);
-        imageView.setImageResource(res);
-        imageView.setPadding(10, 0, 0, 0);
-        linearLayout.addView(imageView, 30, 30);
+        if(res!=null) {
+            ImageView imageView = new ImageView(this);
+            imageView.setImageResource(res);
+            imageView.setPadding(10, 0, 0, 0);
+            linearLayout.addView(imageView, 30, 30);
+        }
         TextView textView = new TextView(this);
         textView.setText(s);
         textView.setTextColor(Color.BLACK);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
         textView.setPadding(20, 5, 0, 5);
         switch (type) {
             case TYPE_WEB: {
@@ -182,14 +225,18 @@ public class Places_Details_Activity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
 
         actionBar.setDisplayShowCustomEnabled(true);
-//        actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setTitle("Назад");
-//        TextView title =new TextView(getApplicationContext());
-//        title.setText("Назад");
-//        title.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-//        actionBar.setCustomView(title);
 
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

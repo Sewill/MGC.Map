@@ -23,7 +23,7 @@ public class Feed_Adapter extends BaseAdapter {
     private List<Feed> feeds;
     private Activity activity;
     private LayoutInflater inflater;
-    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+    private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
     public Feed_Adapter(Activity activity, List<Feed> feeds) {
         this.activity = activity;
@@ -68,7 +68,7 @@ public class Feed_Adapter extends BaseAdapter {
 
         // thumbnail image
 
-        if(m.getCover()!=null&&!m.getCover().equals("null")) {
+        if (m.getCover() != null && !m.getCover().equals("null")) {
             thumbNail.setImageUrl(m.getCover(), imageLoader);
         }
         // title

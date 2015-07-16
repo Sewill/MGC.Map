@@ -18,8 +18,8 @@ import com.mgc.club.app.R;
  * Created by savva on 13.07.2015.
  */
 public class Events_Details_Activity extends AppCompatActivity {
-    Events event = null;
-    TextView note = null;
+    private Events event = null;
+    private TextView note = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class Events_Details_Activity extends AppCompatActivity {
 
         TextView theme = (TextView) findViewById(R.id.details_theme);
 
-        theme.setText(event.getName()+"\n\n"+event.getStart() + "\n" + event.getFinish());
+        theme.setText(event.getName() + "\n\n" + event.getStart() + "\n" + event.getFinish());
 
         note = (TextView) findViewById(R.id.details_note);
 

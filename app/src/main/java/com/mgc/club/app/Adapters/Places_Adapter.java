@@ -23,7 +23,7 @@ public class Places_Adapter extends BaseAdapter {
     private List<Places> placeses;
     private Activity activity;
     private LayoutInflater inflater;
-    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+    private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
     public Places_Adapter(Activity activity, List<Places> placeses) {
         this.activity = activity;
@@ -67,7 +67,7 @@ public class Places_Adapter extends BaseAdapter {
         Places m = placeses.get(position);
 
         // thumbnail image
-        if(m.getLogo_url()!=null&&!m.getLogo_url().equals("null")) {
+        if (m.getLogo_url() != null && !m.getLogo_url().equals("null")) {
             thumbNail.setImageUrl(m.getLogo_url(), imageLoader);
         }
         // title

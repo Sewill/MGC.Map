@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements TabHost.OnTabChan
     public static final String TAB_1 = "Tab1";
     public static final String TAB_2 = "Tab2";
     public static final String TAB_3 = "Tab3";
-    //    SectionsPager_Adapter mSectionsPagerAdapter;
+
+    private ViewPager mViewPager;
     SectionsPager_Adapter new_adapter;
     private TabHost tabHost;
     private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, TabInfo>();
@@ -79,15 +80,13 @@ public class MainActivity extends AppCompatActivity implements TabHost.OnTabChan
 
         TabWidget tabWidget = tabHost.getTabWidget();
         for (int i = 0; i < tabWidget.getChildCount(); i++) {
-            ViewGroup v = (ViewGroup)tabWidget.getChildAt(i);
+            ViewGroup v = (ViewGroup) tabWidget.getChildAt(i);
             TextView tv = (TextView) v.getChildAt(1);
-            if(tv!=null) {
+            if (tv != null) {
                 tv.setTextSize(9);
             }
         }
     }
-
-    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,24 +155,27 @@ public class MainActivity extends AppCompatActivity implements TabHost.OnTabChan
         //TabInfo newTab = this.mapTabInfo.get(tag);
         int pos = this.tabHost.getCurrentTab();
 
-        if(tag.equals(TAB_1)){
+        if (tag.equals(TAB_1)) {
             getSupportActionBar().setTitle("Сертификаты");
-        }else  if(tag.equals(TAB_2)){
+        } else if (tag.equals(TAB_2)) {
             getSupportActionBar().setTitle("Места");
-        }else if(tag.equals(TAB_3)){
+        } else if (tag.equals(TAB_3)) {
             getSupportActionBar().setTitle("Новости");
         }
 
         this.mViewPager.setCurrentItem(pos);
     }
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
     }
+
     @Override
     public void onPageSelected(int position) {
         this.tabHost.setCurrentTab(position);
     }
+
     @Override
     public void onPageScrollStateChanged(int state) {
 
